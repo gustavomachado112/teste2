@@ -449,3 +449,61 @@
       padding: 16px;
     }
   }
+/* --- Estilos para o navbar em telas maiores (Desktop) --- */
+.site-nav ul {
+  list-style: none;
+  display: flex; /* Mantém os links em linha */
+  gap: 20px;
+}
+
+.menu-toggle {
+  display: none; /* Garante que o botão do menu hambúrguer está oculto no desktop */
+}
+
+
+/* --- Estilos para o navbar em telas menores (Mobile) --- */
+@media (max-width: 768px) {
+  .nav-esquerda {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .menu-toggle {
+    display: block; /* Oculta a lista e exibe o botão do menu hambúrguer */
+  }
+
+  .site-nav ul {
+    position: absolute;
+    top: 60px; /* Ajusta a posição do menu abaixo do header */
+    left: 0;
+    right: 0;
+    flex-direction: column; /* Coloca os links um abaixo do outro */
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 16px 16px;
+    padding: 0;
+    max-height: 0; /* A altura é zero por padrão, então o menu está invisível */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  .site-nav ul.is-open {
+    max-height: 500px; /* Quando o JavaScript adiciona esta classe, a altura aumenta e o menu aparece */
+  }
+
+  .site-nav ul li a {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+    display: block;
+  }
+  
+  .site-nav ul li:last-child a {
+    border-bottom: none;
+  }
+
+  .nav-direita {
+    display: none; /* Oculta a área de notificações e modo escuro em telas pequenas */
+  }
+}
