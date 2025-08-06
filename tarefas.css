@@ -63,15 +63,18 @@ body {
   transition: background-color 0.3s, box-shadow 0.3s;
 }
 
-.site-nav h1 {
-  color: var(--text-color);
-  font-weight: 700;
-  font-size: 1.5rem;
-  transition: color 0.3s;
+/* Esconde o botão de menu por padrão em telas grandes */
+.menu-btn {
+  display: none;
 }
 
-.nav-esquerda,
-.nav-direita {
+.nav-principal {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-area {
   display: flex;
   align-items: center;
   gap: 16px;
@@ -82,13 +85,33 @@ body {
   width: auto;
 }
 
-.site-nav ul {
+.site-nav h1 {
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: color 0.3s;
+}
+
+/* Layout do menu em desktop */
+.menu-e-acoes {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-menu {
   list-style: none;
   display: flex;
   gap: 20px;
 }
 
-.site-nav ul li a {
+.nav-direita {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.nav-menu li a {
   color: var(--nav-link-color);
   text-decoration: none;
   font-weight: 600;
@@ -96,15 +119,10 @@ body {
   transition: color 0.3s ease;
 }
 
-.site-nav ul li a:hover,
-.site-nav ul li a[aria-current="page"] {
+.nav-menu li a:hover,
+.nav-menu li a[aria-current="page"] {
   color: var(--nav-link-hover);
   text-decoration: underline;
-}
-
-/* NOVO CÓDIGO: Oculta o botão do menu por padrão em telas grandes */
-.menu-btn {
-  display: none;
 }
 
 #notificationBtn,
@@ -239,4 +257,139 @@ button[type="submit"]:hover {
   transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.
+.tips-panel h2 {
+  margin-bottom: 16px;
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.tips-panel ul {
+  list-style: disc inside;
+  line-height: 1.6;
+  font-size: 16px;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.comment-section h2 {
+  margin-bottom: 15px;
+  color: var(--text-color);
+  transition: color 0.3s;
+}
+
+.comment-section textarea {
+  width: 100%;
+  min-height: 60px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  resize: vertical;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+.comment-section button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 8px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+}
+
+.comment-section button:hover {
+  background-color: #218838;
+}
+
+.comment-item {
+  background-color: var(--comment-item-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 10px;
+  margin-top: 10px;
+  font-size: 0.95em;
+  line-height: 1.4;
+  word-wrap: break-word;
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+}
+
+/* Regras para telas menores */
+@media (max-width: 768px) {
+  .site-nav {
+    flex-wrap: wrap; /* Permite que o menu desça para a linha de baixo */
+    padding: 15px 20px;
+  }
+  
+  .nav-principal {
+    flex: 1; /* Permite que o logo e o título ocupem o espaço disponível */
+    justify-content: space-between;
+  }
+
+  .site-nav h1 {
+    display: none;
+  }
+
+  /* Exibe o botão do menu hambúrguer */
+  .menu-btn {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 24px;
+    cursor: pointer;
+  }
+
+  /* Controla o container do menu de links e ações */
+  .menu-e-acoes {
+    display: none; /* Esconde o container por padrão */
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--header-bg);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  /* Mostra o container quando a classe 'active' é adicionada */
+  .menu-e-acoes.active {
+    display: flex;
+  }
+
+  .nav-menu {
+    flex-direction: column;
+    width: 100%;
+    gap: 0; /* Remove o espaçamento entre os links */
+  }
+
+  .nav-menu li a {
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: block;
+    text-align: center;
+  }
+
+  .nav-direita {
+    width: 100%;
+    padding: 10px 20px;
+    justify-content: center;
+    border-top: 1px solid var(--border-color);
+  }
+
+  main {
+    margin-top: 100px;
+  }
+
+  .task-wrapper {
+    flex-direction: column;
+    gap: 20px;
+    padding: 16px;
+  }
+}
