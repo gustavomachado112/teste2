@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Perfil do Usuário - Agenda Inteligente</title>
+  <link rel="stylesheet" href="usuario.css" />
+</head>
+<body>
+  <header>
+    <nav class="site-nav" role="navigation" aria-label="Menu principal">
+      <div class="nav-esquerda">
+        <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
+        <h1>Agenda Inteligente</h1>
+        
+      
+        <button id="menu-toggle" aria-label="Abrir menu">☰</button>
+        
+        <ul>
+         <li><a href="index.html">Início</a></li>
+         <li><a href="usuario.html" aria-current="page">Perfil</a></li>
+         <li><a href="tarefa.html">Tarefas</a></li>
+         <li><a href="agendas.html">Agendas</a></li>
+         <li><a href="recorrencia.html">Recorrência</a></li>
+         <li><a href="status.html">Status</a></li>
+         <li><a href="evento.html">Eventos</a></li>
+         <li><a href="prioridade.html">Prioridades</a></li>
+        </ul>
+      </div>
+      <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
+    </nav>
+  </header>
+  
+
+  <main class="container" role="main" aria-labelledby="titulo">
+    <h1 id="titulo">Perfil do Usuário</h1>
+
+    <section class="info-bloco">
+      <p><strong>Nome:</strong> [informação oculta]</p>
+      <button class="btn-alterar" onclick="confirmarAlteracao('nome')" aria-label="Alterar Nome">Alterar Nome</button>
+      <input type="text" placeholder="Novo nome" class="input-camuflado" aria-label="Novo nome">
+    </section>
+
+    <section class="info-bloco">
+      <p><strong>E-mail:</strong> ********@gmail.com</p>
+      <button class="btn-alterar" onclick="confirmarAlteracao('e-mail')" aria-label="Alterar E-mail">Alterar E-mail</button>
+      <input type="email" placeholder="Novo e-mail" class="input-camuflado" aria-label="Novo e-mail">
+    </section>
+
+    <section class="info-bloco">
+      <p><strong>Senha:</strong> [informação oculta]</p>
+      <button class="btn-alterar" onclick="confirmarAlteracao('senha')" aria-label="Alterar Senha">Alterar Senha</button>
+      <input type="password" placeholder="Nova senha" class="input-camuflado" aria-label="Nova senha">
+    </section>
+
+    <section class="info-bloco">
+      <p><strong>Telefone:</strong> [informação oculta]</p>
+      <button class="btn-alterar" onclick="confirmarAlteracao('telefone')" aria-label="Alterar Telefone">Alterar Telefone</button>
+      <input type="tel" placeholder="Novo telefone" class="input-camuflado" aria-label="Novo telefone">
+    </section>
+
+    <section class="info-bloco">
+      <p><strong>CPF:</strong> [informação oculta]</p>
+      <button class="btn-alterar" onclick="confirmarAlteracao('CPF')" aria-label="Alterar CPF">Alterar CPF</button>
+      <input type="text" placeholder="Novo CPF" class="input-camuflado" aria-label="Novo CPF">
+    </section>
+  </main>
+
+  <script>
+    const btn = document.getElementById('modo-btn');
+    const body = document.body;
+    const temaSalvo = localStorage.getItem('tema') || 'light';
+
+    if (temaSalvo === 'dark') {
+      body.classList.add('dark-mode');
+      btn.textContent = '☀️';
+    }
+
+    btn.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const novoTema = body.classList.contains('dark-mode') ? 'dark' : 'light';
+      localStorage.setItem('tema', novoTema);
+      btn.textContent = novoTema === 'dark' ? '☀️' : '🌙';
+    });
+
+    function confirmarAlteracao(tipo) {
+      if(confirm(`Você tem certeza que deseja alterar sua ${tipo}?`)) {
+        alert(`${tipo.charAt(0).toUpperCase() + tipo.slice(1)} alterado com sucesso!`);
+      }
+    }
+    const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelector('.site-nav ul');
+
+if (menuToggle && navLinks) {
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+  });
+} else {
+  console.error("Botão do menu ou lista de links da navbar não encontrado.");
+}
+
+  </script>
+</body>
+</html>
