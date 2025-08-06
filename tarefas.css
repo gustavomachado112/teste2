@@ -1,406 +1,242 @@
 :root {
-  --bg-color: #ffffff;
-  --text-color: #1a1a1a;
-  --primary-color: #4f73ff;
-  --input-bg: #f1f1f1;
-  --border-color: #cccccc;
-  --header-bg: #ffffff;
-  --nav-link-color: #1a1a1a;
-  --nav-link-hover: #3366cc;
-  --button-bg: #3366cc;
-  --button-hover-bg: #254d99;
-  --panel-bg: #ffffff;
-  --panel-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  --comment-item-bg: #f0f0f0;
+  --bg-color: #ffffff;
+  --text-color: #1a1a1a;
+  --primary-color: #4f73ff;
+  --input-bg: #f1f1f1;
+  --border-color: #cccccc;
+  --header-bg: #ffffff;
+  --nav-link-color: #1a1a1a;
+  --nav-link-hover: #3366cc;
+  --button-bg: #3366cc;
+  --button-hover-bg: #254d99;
+  --panel-bg: #ffffff;
+  --panel-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --comment-item-bg: #f0f0f0;
 }
 
 body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #e1e1e1;
-  --input-bg: #2c2c2c;
-  --border-color: #444;
-  --header-bg: #1e1e1e;
-  --nav-link-color: #e1e1e1;
-  --nav-link-hover: #88aaff;
-  --button-bg: #3366cc;
-  --button-hover-bg: #254d99;
-  --panel-bg: #282828;
-  --panel-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
-  --comment-item-bg: #252525;
+  --bg-color: #121212;
+  --text-color: #e1e1e1;
+  --input-bg: #2c2c2c;
+  --border-color: #444;
+  --header-bg: #1e1e1e;
+  --nav-link-color: #e1e1e1;
+  --nav-link-hover: #88aaff;
+  --button-bg: #3366cc;
+  --button-hover-bg: #254d99;
+  --panel-bg: #282828;
+  --panel-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+  --comment-item-bg: #252525;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  font-family: "Segoe UI", sans-serif;
-  background-color: var(--bg-color);
-  color: var(--text-color);
-  transition: background-color 0.3s, color 0.3s;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 0 40px;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 40px;
 }
 
 .site-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background-color: var(--header-bg);
-  padding: 15px 40px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
-  border-radius: 0 0 16px 16px;
-  z-index: 1000;
-  transition: background-color 0.3s, box-shadow 0.3s;
-  flex-wrap: wrap; /* Permite que os itens quebrem a linha */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: var(--header-bg);
+  padding: 15px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 16px 16px;
+  z-index: 1000;
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .site-nav h1 {
-  color: var(--text-color);
-  font-weight: 700;
-  font-size: 1.5rem;
-  transition: color 0.3s;
+  color: var(--text-color);
+  font-weight: 700;
+  font-size: 1.5rem;
+  transition: color 0.3s;
 }
 
 .nav-esquerda,
 .nav-direita {
-  display: flex;
-  align-items: center;
-  gap: 16px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 .logo {
-  height: 40px;
-  width: auto;
+  height: 40px;
+  width: auto;
 }
 
-.nav-menu {
-  list-style: none;
-  display: flex;
-  gap: 20px;
-  width: 100%;
+.site-nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
 }
 
-.nav-menu li a {
-  color: var(--nav-link-color);
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+.site-nav ul li a {
+  color: var(--nav-link-color);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
 }
 
-.nav-menu li a:hover,
-.nav-menu li a[aria-current="page"] {
-  color: var(--nav-link-hover);
-  text-decoration: underline;
+.site-nav ul li a:hover,
+.site-nav ul li a[aria-current="page"] {
+  color: var(--nav-link-hover);
+  text-decoration: underline;
 }
 
-/* Esconde o botão do menu por padrão */
+/* NOVO CÓDIGO: Oculta o botão do menu por padrão em telas grandes */
 .menu-btn {
-  display: none;
-  background: none;
-  border: none;
-  color: var(--text-color);
-  font-size: 24px;
-  cursor: pointer;
+  display: none;
 }
 
 #notificationBtn,
 #modo-btn {
-  background-color: var(--button-bg);
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-size: 18px;
-  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  background-color: var(--button-bg);
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
 #notificationBtn:hover,
 #modo-btn:hover {
-  background-color: var(--button-hover-bg);
-  transform: scale(1.1);
+  background-color: var(--button-hover-bg);
+  transform: scale(1.1);
 }
 
 .notification-area {
-  position: relative;
-  display: inline-block;
+  position: relative;
+  display: inline-block;
 }
 
 .dropdown {
-  position: absolute;
-  top: 45px;
-  right: 0;
-  background-color: var(--input-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 12px;
-  box-shadow: var(--panel-shadow);
-  color: var(--text-color);
-  min-width: 220px;
-  z-index: 10;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: var(--input-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 12px;
+  box-shadow: var(--panel-shadow);
+  color: var(--text-color);
+  min-width: 220px;
+  z-index: 10;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
 }
 
 main {
-  padding: 20px 12px;
-  flex-direction: column;
-  margin-top: 120px;
-  width: 100%;
-  max-width: 1400px;
+  padding: 20px 12px;
+  flex-direction: column;
+  margin-top: 120px;
+  width: 100%;
+  max-width: 1400px;
 }
 
 .task-wrapper {
-  display: flex;
-  gap: 40px;
-  width: 100%;
-  max-width: 1300px;
-  background-color: var(--panel-bg);
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: var(--panel-shadow);
-  transition: background-color 0.3s, box-shadow 0.3s;
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  max-width: 1300px;
+  background-color: var(--panel-bg);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: var(--panel-shadow);
+  transition: background-color 0.3s, box-shadow 0.3s;
 }
 
 .task-form-section {
-  flex: 2;
-  min-width: 320px;
-  padding-right: 20px;
-  border-right: 1px solid var(--border-color);
-  transition: border-color 0.3s;
+  flex: 2;
+  min-width: 320px;
+  padding-right: 20px;
+  border-right: 1px solid var(--border-color);
+  transition: border-color 0.3s;
 }
 
 .task-form-section h1 {
-  margin-bottom: 20px;
-  font-size: 28px;
-  color: var(--text-color);
-  transition: color 0.3s;
+  margin-bottom: 20px;
+  font-size: 28px;
+  color: var(--text-color);
+  transition: color 0.3s;
 }
 
 form > div {
-  margin-bottom: 16px;
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-  font-weight: 500;
-  margin-bottom: 6px;
-  color: var(--text-color);
-  transition: color 0.3s;
+  font-weight: 500;
+  margin-bottom: 6px;
+  color: var(--text-color);
+  transition: color 0.3s;
 }
 
 input,
 textarea,
 select {
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  background-color: var(--input-bg);
-  color: var(--text-color);
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border-color);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
 }
 
 textarea {
-  resize: vertical;
-  min-height: 80px;
+  resize: vertical;
+  min-height: 80px;
 }
 
 button[type="submit"] {
-  margin-top: 10px;
-  padding: 10px 16px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+  margin-top: 10px;
+  padding: 10px 16px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
 
 button[type="submit"]:hover {
-  background-color: #3a5dc8;
+  background-color: #3a5dc8;
 }
 
 .tips-panel {
-  flex: 1;
-  background-color: var(--panel-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  padding: 20px;
-  color: var(--text-color);
-  font-weight: 500;
-  box-shadow: var(--panel-shadow);
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
+  flex: 1;
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 20px;
+  color: var(--text-color);
+  font-weight: 500;
+  box-shadow: var(--panel-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  transition: background-color 0.3s, border-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-.tips-panel h2 {
-  margin-bottom: 16px;
-  font-weight: 700;
-  font-size: 22px;
-  color: var(--text-color);
-  transition: color 0.3s;
-}
-
-.tips-panel ul {
-  list-style: disc inside;
-  line-height: 1.6;
-  font-size: 16px;
-  color: var(--text-color);
-  transition: color 0.3s;
-}
-
-.comment-section h2 {
-  margin-bottom: 15px;
-  color: var(--text-color);
-  transition: color 0.3s;
-}
-
-.comment-section textarea {
-  width: 100%;
-  min-height: 60px;
-  margin-bottom: 10px;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid var(--border-color);
-  background-color: var(--input-bg);
-  color: var(--text-color);
-  resize: vertical;
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-}
-
-.comment-section button {
-  background-color: #28a745;
-  color: white;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  width: 100%;
-}
-
-.comment-section button:hover {
-  background-color: #218838;
-}
-
-.comment-item {
-  background-color: var(--comment-item-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 6px;
-  padding: 10px;
-  margin-top: 10px;
-  font-size: 0.95em;
-  line-height: 1.4;
-  word-wrap: break-word;
-  color: var(--text-color);
-  transition: background-color 0.3s, border-color 0.3s, color 0.3s;
-}
-
-@media (max-width: 1024px) {
-  .site-nav ul {
-    gap: 15px;
-  }
-  .site-nav h1 {
-    font-size: 1.3rem;
-  }
-  .site-nav ul li a {
-    font-size: 0.9rem;
-  }
-  main {
-    padding: 20px;
-    margin-top: 100px;
-  }
-  .nav-esquerda, .nav-direita {
-    gap: 12px;
-  }
-  .task-wrapper {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .task-form-section {
-    padding-right: 0;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 20px;
-  }
-}
-
-@media (max-width: 768px) {
-  .site-nav {
-    flex-direction: row;
-    align-items: center;
-    padding: 15px 20px;
-    flex-wrap: wrap;
-  }
-  .nav-esquerda {
-    order: 1;
-    justify-content: flex-start;
-    flex-grow: 1;
-  }
-  .nav-direita {
-    order: 2;
-    justify-content: flex-end;
-    flex-grow: 1;
-  }
-  .nav-esquerda h1 {
-    display: none;
-  }
-  .menu-btn {
-    display: block;
-  }
-  .nav-menu {
-    display: none; 
-    flex-direction: column;
-    background-color: var(--header-bg);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    z-index: 999;
-  }
-  .nav-menu.active {
-    display: flex; 
-  }
-  .nav-menu li {
-    width: 100%;
-  }
-  .nav-menu li a {
-    padding: 15px 20px;
-    border-bottom: 1px solid var(--border-color);
-    display: block;
-    text-align: center;
-  }
-  main {
-    padding: 20px 12px;
-    margin-top: 100px; 
-  }
-  .task-wrapper {
-    flex-direction: column;
-    gap: 20px;
-    padding: 16px;
-  }
-  .task-form-section {
-    padding-right: 0;
-    border-right: none;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 20px;
-  }
-  .tips-panel {
-    padding-top: 0;
-    border-top: none;
-  }
-}
+.
