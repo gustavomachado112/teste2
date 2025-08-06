@@ -1,108 +1,106 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Agenda Inteligente - Nova Tarefa</title>
-    <link rel="stylesheet" href="tarefas.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenda Inteligente - Nova Tarefa</title>
+  <link rel="stylesheet" href="tarefas.css" />
 </head>
 <body>
-    <header>
-        <nav class="site-nav" role="navigation" aria-label="Menu principal">
-            <div class="nav-esquerda">
-                <button class="menu-toggle" aria-expanded="false" aria-controls="main-nav-list" aria-label="Abrir menu principal">
-                    <span class="hamburger"></span>
-                </button>
-                <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
-                <h1>Agenda Inteligente</h1>
-                <ul id="main-nav-list">
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="tarefa.html" aria-current="page">Tarefas</a></li>
-                    <li><a href="usuario.html">Perfil</a></li>
-                    <li><a href="agendas.html">Agendas</a></li>
-                    <li><a href="recorrencia.html">Recorrência</a></li>
-                    <li><a href="status.html">Status</a></li>
-                    <li><a href="evento.html">Eventos</a></li>
-                    <li><a href="prioridade.html">Prioridades</a></li>
-                </ul>
-            </div>
-            <div class="nav-direita">
-                <div class="notification-area">
-                    <button id="notificationBtn" aria-label="Notificações">🔔</button>
-                    <div id="notificationDropdown" class="dropdown" hidden>
-                        No momento, você não tem nenhuma notificação.
-                    </div>
-                </div>
-                <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="site-nav" role="navigation" aria-label="Menu principal">
+      <div class="nav-esquerda">
+        <img src="logo.png" alt="Logo Agenda Inteligente" class="logo" />
+        <h1>Agenda Inteligente</h1>
+      </div>
+      <div class="nav-direita">
+                <button id="menu-btn" class="menu-btn" aria-label="Abrir menu">☰</button>
+        <div class="notification-area">
+          <button id="notificationBtn" aria-label="Notificações">🔔</button>
+          <div id="notificationDropdown" class="dropdown" hidden>
+            No momento, você não tem nenhuma notificação.
+          </div>
+        </div>
+        <button id="modo-btn" aria-label="Alternar modo claro/escuro">🌙</button>
+      </div>
+            <ul id="nav-menu" class="nav-menu">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="tarefa.html" aria-current="page">Tarefas</a></li>
+        <li><a href="usuario.html">Perfil</a></li>
+        <li><a href="agendas.html">Agendas</a></li>
+        <li><a href="recorrencia.html">Recorrência</a></li>
+        <li><a href="status.html">Status</a></li>
+        <li><a href="evento.html">Eventos</a></li>
+        <li><a href="prioridade.html">Prioridades</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <main>
-        <div class="task-wrapper">
-            <section class="task-form-section">
-                <h1>Nova Tarefa</h1>
-                <form id="taskForm">
-                    <div>
-                        <label for="taskName">Nome da Tarefa</label>
-                        <input type="text" id="taskName" name="taskName" required />
-                    </div>
-                    <div>
-                        <label for="creationDate">Data de Criação</label>
-                        <input type="date" id="creationDate" name="creationDate" required />
-                    </div>
-                    <div>
-                        <label for="dueDate">Data Limite para Fazer</label>
-                        <input type="date" id="dueDate" name="dueDate" required />
-                    </div>
-                    <div>
-                        <label for="description">Descrição da Tarefa</label>
-                        <textarea id="description" name="description" required></textarea>
-                    </div>
-                    <div>
-                        <label for="attachmentLink">Link do Anexo</label>
-                        <input
-                            type="url"
-                            id="attachmentLink"
-                            name="attachmentLink"
-                            placeholder="http://..."
-                            pattern="https?://.+"
-                            title="Insira uma URL válida"
-                        />
-                    </div>
-                    <div>
-                        <label for="category">Categoria</label>
-                        <select id="category" name="category">
-                            <option value="" selected>Selecione</option>
-                            <option value="trabalho">Trabalho</option>
-                            <option value="pessoal">Pessoal</option>
-                            <option value="estudo">Estudo</option>
-                            <option value="outros">Outros</option>
-                        </select>
-                    </div>
-                    <button type="submit">Salvar Tarefa</button>
-                </form>
-            </section>
+  <main>
+    <div class="task-wrapper">
+      <section class="task-form-section">
+        <h1>Nova Tarefa</h1>
+        <form id="taskForm">
+          <div>
+            <label for="taskName">Nome da Tarefa</label>
+            <input type="text" id="taskName" name="taskName" required />
+          </div>
+          <div>
+            <label for="creationDate">Data de Criação</label>
+            <input type="date" id="creationDate" name="creationDate" required />
+          </div>
+          <div>
+            <label for="dueDate">Data Limite para Fazer</label>
+            <input type="date" id="dueDate" name="dueDate" required />
+          </div>
+          <div>
+            <label for="description">Descrição da Tarefa</label>
+            <textarea id="description" name="description" required></textarea>
+          </div>
+          <div>
+            <label for="attachmentLink">Link do Anexo</label>
+            <input
+              type="url"
+              id="attachmentLink"
+              name="attachmentLink"
+              placeholder="http://..."
+              pattern="https?://.+"
+              title="Insira uma URL válida"
+            />
+          </div>
+          <div>
+            <label for="category">Categoria</label>
+            <select id="category" name="category">
+              <option value="" selected>Selecione</option>
+              <option value="trabalho">Trabalho</option>
+              <option value="pessoal">Pessoal</option>
+              <option value="estudo">Estudo</option>
+              <option value="outros">Outros</option>
+            </select>
+          </div>
+          <button type="submit">Salvar Tarefa</button>
+        </form>
+      </section>
 
-            <aside class="tips-panel">
-                <h2>Dicas Rápidas</h2>
-                <ul>
-                    <li>Use prazos realistas</li>
-                    <li>Organize por categoria</li>
-                    <li>Adicione anexos úteis</li>
-                </ul>
+      <aside class="tips-panel">
+        <h2>Dicas Rápidas</h2>
+        <ul>
+          <li>Use prazos realistas</li>
+          <li>Organize por categoria</li>
+          <li>Adicione anexos úteis</li>
+        </ul>
 
-                <div class="comment-section">
-                    <h2>Comentários</h2>
-                    <textarea id="commentInput" placeholder="Adicionar um comentário..."></textarea>
-                    <button id="addCommentBtn">Adicionar Comentário</button>
-                    <div id="commentsList">
-                    </div>
-                </div>
-            </aside>
-        </div>
-    </main>
+        <div class="comment-section">
+          <h2>Comentários</h2>
+          <textarea id="commentInput" placeholder="Adicionar um comentário..."></textarea>
+          <button id="addCommentBtn">Adicionar Comentário</button>
+          <div id="commentsList">
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
 
-    <script src="tarefa.js"></script>
+  <script src="tarefa.js"></script>
 </body>
 </html>
